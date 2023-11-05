@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ recipe.name }}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="recipe-details">
+      <h2 class="center">{{ recipe.name }}</h2>
+      <div class="recipe-details-content">
+        <div class="column">
+          <table>
+            <tr>
+              <th><strong>Servings:</strong></th>
+              <td>{{ recipe.servings }}</td>
+            </tr>
+            <tr>
+              <th><strong>Cooking Time (minutes):</strong></th>
+              <td>{{ recipe.time }}</td>
+            </tr>
+            <tr>
+              <th><strong>Cuisine:</strong></th>
+              <td>{{ recipe.cuisine }}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="column">
+          <table>
+            <tr>
+              <th><strong>Course:</strong></th>
+              <td>{{ recipe.course }}</td>
+            </tr>
+            <tr>
+              <th><strong>Diet:</strong></th>
+              <td>{{ recipe.diet }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-content">
+      <div class="recipe-ingredients">
+        <h3>Ingredients</h3>
+        <hr class="line" />
+        <table>
+          <tbody>
+            {% for ingredient in recipe.ingredients.split(',') %} {% if
+            ingredient.strip() != '' %}
+            <tr>
+              <td>{{ loop.index }}.</td>
+              <!-- Add the indexing here -->
+              <td>{{ ingredient }}</td>
+            </tr>
+            {% endif %} {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="recipe-instructions">
+        <h3>Instructions</h3>
+        <hr class="line" />
+        <table>
+          <tbody>
+            {% for step in recipe.instructions.split('.') %} {% if step.strip()
+            !='' %}
+            <tr>
+              <td>{{ loop.index }}.</td>
+              <!-- Add the indexing here -->
+              <td>{{ step }}</td>
+            </tr>
+            {% endif %} {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

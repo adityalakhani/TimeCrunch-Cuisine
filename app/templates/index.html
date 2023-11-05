@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TimeCrunch cuisine</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>TimeCrunch cuisine</h1>
+    <form action="/recommend" method="post" id="recipe-form">
+        <div class="input-grid">
+            <div class="input-item">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter recipe name" required>
+            </div>
+            <div class="input-item">
+                <label for="servings">Servings</label>
+                <input type="number" name="servings" id="servings" placeholder="Enter servings" required>
+            </div>
+            <div class="input-item">
+                <label for="course">Course</label>
+                <input type="text" name="course" id="course" placeholder="Enter course" required>
+            </div>
+            </div>
+    <hr style = "border: 1px solid #2c3b4b;" />
+    <div class="input-grid">        
+            <div class="input-item">
+                <label for="time">Cooking Time (minutes)</label>
+                <input type="number" name="time" id="time" placeholder="Enter cooking time" required>
+            </div>
+            <div class="input-item">
+                <label for="cuisine">Cuisine</label>
+                <input type="text" name="cuisine" id="cuisine" placeholder="Enter cuisine" required>
+            </div>
+            <div class="input-item">
+                <label for="diet">Diet</label>
+                <input type="text" name="diet" id="diet" placeholder="Enter diet" required>
+            </div>
+        </div>
+        <input type="submit" value="Search">
+    </form>
+
+    <div class="recommended-recipes" style="display: none;">
+        <h2>Try These!</h2>
+    </div>
+
+    <div class="recipe-grid" id="recipe-grid">
+        <!-- Generated recipe tiles will be inserted here -->
+    </div>
+
+    <script>
+        const form = document.getElementById("recipe-form");
+        const recipeGrid = document.getElementById("recipe-grid");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+    
+            // Clear existing recipe tiles
+            while (recipeGrid.firstChild) {
+                recipeGrid.removeChild(recipeGrid.firstChild);
+            }
+    
+            const formData = new FormData(form);
+    
+            fetch('/recommend', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show the recommended-recipes div
+                const recommendedRecipesDiv = document.querySelector(".recommended-recipes");
+                recommendedRecipesDiv.style.display = "block";
+
+                // Generate recipe tiles with the received recommendations
+                data.forEach(recipe => {
+                    const recipeItem = document.createElement("a"); // Use anchor tags for clickable tiles
+                    recipeItem.classList.add("recipe-item");
+                    recipeItem.href = `/recipe/${recipe.id}`; // Set the URL for the detailed recipe page
+                    recipeItem.innerHTML = `
+                        <p style = "text-align:center;">${recipe.name}</p>
+                        <p><strong>Servings:</strong> ${recipe.servings}</p>
+                        <p><strong>Course:</strong> ${recipe.course}</p>
+                        <p><strong>Cooking Time (minutes):</strong> ${recipe.time}</p>
+                        <p><strong>Cuisine:</strong> ${recipe.cuisine}</p>
+                        <p><strong>Diet:</strong> ${recipe.diet}</p>
+                    `;
+                    recipeGrid.appendChild(recipeItem);
+                });
+            });
+        });
+    </script>
+    </body>
+    </html>
+</body>
+</html>

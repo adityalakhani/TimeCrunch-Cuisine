@@ -1,0 +1,262 @@
+body,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Use the 'Lora' font */
+  background-color: #fff3e0; /* Lightened beige background */
+  text-align: center;
+  font-weight: 300;
+  font-size: 20px;
+  color: #333; /* Dark grayish text color */
+}
+
+h1 {
+  font-weight: 300;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Use the 'Maven Pro' font for h1 */
+  color: #000; /* Blue color for h1 */
+  font-size: 36px;
+  padding-top: 20px;
+}
+
+/* Form Styles */
+form {
+  background-color: #fff3e0;
+  border-top: 2px solid #2c3b4b;
+  border-bottom: 2px solid #2c3b4b;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 10px;
+}
+
+.input-item {
+  padding: 10px;
+  background-color: #fff3e0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+label {
+    padding-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333; /* Dark gray text color for labels */
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 80%; /* Make the textboxes smaller */
+  padding: 10px;
+  border: none;
+  background-color: transparent; /* Transparent background */
+  color: #333; /* Dark gray text color for inputs */
+  border: 1px solid #2c3b4b;
+  border-radius: 5px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url("down-arrow.png") no-repeat right;
+  background-position-x: 98%;
+}
+
+input[type="submit"] {
+  border: 1px solid #000;
+  background-color: #fff3e0; /* Slightly darker button color (e.g., darker orange) */
+  color: #2c3b4b;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px; /* Move the submit button further down */
+  transition: 0.35s; /* Add a 0.5-second transition to the button's background color */
+}
+
+input[type="submit"]:hover {
+  color: #fff;
+  background-color: #2c3b4b; /* Slightly darker color for the hover effect */
+}
+
+/* List Styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  color: #333; /* Dark gray text color for list items */
+}
+
+.recommended-recipes h2 {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Use the 'Lora' font */
+  font-weight: 300;
+  color: #fff; /* Change the font color to white */
+  background-color: rgb(
+    15 23 42
+  ); /* Change the background color to the desired value */
+  padding: 16px; /* Add padding for spacing */
+  display: inline-block; /* Make it an inline block so it wraps around the text */
+  animation: fadeIn 0.5s ease-in;
+}
+
+.recipe-grid {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  max-width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* Adjust the gap between items */
+  text-align: left;
+}
+
+.recipe-item {
+  border-top: 2px solid #2c3b4b;
+  border-bottom: 2px solid #2c3b4b;
+  padding: 30px;
+  margin: 10px;
+  width: 300px;
+  background-color: #fff3e0;
+  text-decoration: none; /* Remove underlines for anchor tags */
+  display: inline-block;
+  vertical-align: top;
+  color: #333;
+  transition: 0.15s;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.recipe-item p {
+  font-family: Lora, Arial, Helvetica, Nimbus Sans L, sans-serif;
+}
+
+.recipe-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.recipe-details {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin: 0 auto;
+  text-align: center;
+}
+
+.recipe-details-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create two columns */
+  gap: 5px; /* Adjust the gap as needed */
+  justify-items: center; /* Align items in each column to the left */
+  padding: 30px;
+}
+
+.center {
+  text-align: center;
+}
+
+.column {
+  text-align: left;
+}
+
+.column td {
+  font-style: italic;
+}
+
+.recipe-details th strong {
+  font-weight: 600;
+  padding-right: 20px;
+}
+
+.recipe-details h2 {
+  font-weight: 600; /* Adjust the value to make it stronger or lighter */
+}
+
+.recipe-details p strong {
+  font-weight: 500; /* Adjust the value to make it stronger or lighter */
+  padding-right: 10px;
+}
+
+.recipe-content {
+  font-size: 18px;
+  font-family: Lora, Arial, Helvetica, Nimbus Sans L, sans-serif;
+  display: flex;
+  justify-content: space-between; /* Separate ingredients and instructions side by side */
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.line {
+  border: 2px solid #2c3b4b;
+}
+
+.recipe-ingredients {
+  flex: 35%; /* Set ingredients to 35% width */
+  padding: 0 20px;
+}
+
+.recipe-instructions {
+  flex: 55%; /* Set instructions to 55% width */
+  padding: 0 20px;
+}
+
+.recipe-ingredients,
+.recipe-instructions {
+  text-align: left;
+  padding: 0 20px;
+}
+
+.recipe-ingredients h3,
+.recipe-instructions h3 {
+  font-size: 24px;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-align: center;
+  margin: 12px;
+}
+
+.recipe-ingredients td,
+.recipe-instructions td {
+  font-style: italic;
+  line-height: 2; /* Adjust the line-height value to increase the gap between lines within the same cell */
+}
+
+.recipe-ingredients td:first-child,
+.recipe-instructions td:first-child {
+  font-weight: bold; /* Make the index number bold */
+  padding-right: 10px; /* Add some spacing after the index number */
+  line-height: 3;
+  margin-bottom: 10px;
+}
